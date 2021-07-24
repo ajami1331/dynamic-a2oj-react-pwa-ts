@@ -28,6 +28,11 @@ const Table = (props: any) => {
 const Ladder = (props: any) => {
   return (
     <div>
+      <div className="text-center font-semibold my-2">
+        {
+          props.selectedLadder.problems.map((problem: any) => props.user[problem.link] ? 1 : 0).reduce((acc: number, cur: number) => acc + cur) + ' problem(s) solved.'
+        }
+      </div>
       <Table problems={props.selectedLadder.problems} user={props.user}></Table>
     </div>
   );
