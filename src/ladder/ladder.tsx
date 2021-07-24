@@ -26,10 +26,8 @@ const Table = (props: any) => {
   );
 }
 const Ladder = (props: any) => {
-  console.log(props);
   return (
     <div>
-      {props.selectedLadder.name}
       <Table problems={props.selectedLadder.problems} user={props.user}></Table>
     </div>
   );
