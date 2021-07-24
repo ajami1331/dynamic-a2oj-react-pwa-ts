@@ -12,7 +12,7 @@ const App = () => {
   const [user, setUser] = useState(JSON.parse(window.localStorage.getItem('last-used-user') || '{}') || {});
   return (
     <div className="flex flex-row min-h-screen justify-center items-center text-xs sm:text-sm lg:text-base">
-      <div className="flex flex-col mb-10">
+      <div className="flex flex-col mb-6">
         <Selector
           name = "ladder"
           selectedValue = {ladder}
