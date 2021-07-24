@@ -21,9 +21,9 @@ const App = () => {
         ></Selector>
         <UserProfile setUser = {setUser}></UserProfile>
         <Ladder 
-        className=""
-        selectedLadder = {laddersDetails[ladder]}
-        user = {user}
+          className=""
+          selectedLadder = {laddersDetails[ladder]}
+          user = {user}
         >
         </Ladder>
       </div>

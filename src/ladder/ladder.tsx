@@ -10,19 +10,19 @@ const TBodyRow = (problem: any, user: any) => {
 }
 const Table = (props: any) => {
   return (
-  <table className="table-auto">
-    <thead className="justify-between text-gray-100 font-semibold">
-      <tr className="bg-blue-500">
-        <th className="px-16 py-2">Id</th>
-        <th className="px-16 py-2">Name</th>
-        <th className="px-16 py-2">Difficulty</th>
-        <th className="px-16 py-2">Solved</th>
-      </tr>
-    </thead>
-    <tbody className="bg-gray-200">
-      {props.problems.map((p: any) => TBodyRow(p, props.user))}
-    </tbody>
-  </table>
+    <table className="table-auto">
+      <thead className="justify-between text-gray-100 font-semibold">
+        <tr className="bg-blue-500">
+          <th className="px-16 py-2">Id</th>
+          <th className="px-16 py-2">Name</th>
+          <th className="px-16 py-2">Difficulty</th>
+          <th className="px-16 py-2">Solved</th>
+        </tr>
+      </thead>
+      <tbody className="bg-gray-200">
+        {props.problems.map((p: any) => TBodyRow(p, props.user))}
+      </tbody>
+    </table>
   );
 }
 const Ladder = (props: any) => {

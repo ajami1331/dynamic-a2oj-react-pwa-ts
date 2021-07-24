@@ -30,7 +30,7 @@ const UserProfile = (props: any) => {
   const [username, setUsername] = useState(window.localStorage.getItem('last-used-username') || '');
   const [loading, setLoading] = useState(false);
   return (
-    <form className="flex flex-col">
+    <form className="flex flex-col px-4">
       <div className="mt-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">Username:</label>
         <input 

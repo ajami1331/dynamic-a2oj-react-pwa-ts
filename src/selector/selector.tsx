@@ -1,6 +1,6 @@
 const Selector = (props: any) => {
   return (
-    <div className="flex">
+    <div className="flex px-4">
       <select className="flex shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-4"
         name = {props.name}
         value={props.selectedValue} 
