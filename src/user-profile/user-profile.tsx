@@ -1,12 +1,15 @@
 import { useState } from "react";
+import Loader from "../loader/loader";
 const url = `https://codeforces.com/api/user.status?from=1&handle=`
 
-const fetchUserProfile = async (username:string, cb: any) => {
+const fetchUserProfile = async (username:string, cb: any, setLoading: any) => {
+  setLoading(true);
   const mp: any = {};
   const response = await window.fetch(url + username);
   const result = await response.json();
   if (result?.status !== 'OK') {
     cb(mp);
+    setLoading(false);
     return;
   }
   result?.result.forEach((r: any) => {
@@ -16,10 +19,12 @@ const fetchUserProfile = async (username:string, cb: any) => {
     }
   });
   cb(mp);
+  setLoading(false);
 };
 
 const UserProfile = (props: any) => {
   const [username, setUsername] = useState('');
+  const [loading, setLoading] = useState(false);
   return (
     <div className="flex flex-col">
       <div className="mt-4">
@@ -34,9 +39,12 @@ const UserProfile = (props: any) => {
         </div>
       <button 
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-4"
-        onClick = {async() => await fetchUserProfile(username, props.setUser)}>
+        onClick = {async() => await fetchUserProfile(username, props.setUser, setLoading)}>
           Fetch
       </button>
+      <div className="flex justify-center">
+        {loading && <Loader></Loader>}
+      </div>
     </div>
   )
 };
