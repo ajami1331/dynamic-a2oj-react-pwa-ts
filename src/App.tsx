@@ -11,19 +11,22 @@ const App = () => {
   const [ladder, setLadder] = useState(ladderList[0].id);
   const [user, setUser] = useState({});
   return (
-    <div className="App">
-      <Selector
-        name = "ladder"
-        selectedValue = {ladder}
-        onChange = {(e: any) => setLadder(e.target.value)}
-        list = {ladderList}
-      ></Selector>
-      <UserProfile setUser = {setUser}></UserProfile>
-      <Ladder 
-       selectedLadder = {laddersDetails[ladder]}
-       user = {user}
-      >
-      </Ladder>
+    <div className="flex flex-row min-h-screen justify-center items-center">
+      <div className="flex flex-col">
+        <Selector
+          name = "ladder"
+          selectedValue = {ladder}
+          onChange = {(e: any) => setLadder(e.target.value)}
+          list = {ladderList}
+        ></Selector>
+        <UserProfile setUser = {setUser}></UserProfile>
+        <Ladder 
+        className=""
+        selectedLadder = {laddersDetails[ladder]}
+        user = {user}
+        >
+        </Ladder>
+      </div>
     </div>
   );
 }
