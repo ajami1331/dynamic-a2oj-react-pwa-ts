@@ -30,7 +30,7 @@ const UserProfile = (props: any) => {
   const [username, setUsername] = useState(window.localStorage.getItem('last-used-username') || '');
   const [loading, setLoading] = useState(false);
   return (
-    <div className="flex flex-col">
+    <form className="flex flex-col">
       <div className="mt-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">Username:</label>
         <input 
@@ -42,16 +42,14 @@ const UserProfile = (props: any) => {
 
           </input>
         </div>
-      <button 
+      <input type="submit" value="Fetch"  
         disabled={loading}
         className={`${loading ? 'bg-gray-500 cursor-wait' : 'bg-blue-500 hover:bg-blue-700' }  text-white font-bold py-2 px-4 rounded my-4`} 
-        onClick = {async() => await fetchUserProfile(username, props.setUser, setLoading)}>
-          Fetch
-      </button>
+        onClick = {async() => await fetchUserProfile(username, props.setUser, setLoading)} />
       <div className="flex justify-center mb-4">
         {loading && <Loader></Loader>}
       </div>
-    </div>
+    </form>
   )
 };
 export default UserProfile;
