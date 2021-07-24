@@ -8,7 +8,7 @@ import Ladder from './ladder/ladder';
 import UserProfile from './user-profile/user-profile';
 
 const App = () => {
-  const [ladder, setLadder] = useState(ladderList[0].id);
+  const [ladder, setLadder] = useState(JSON.parse(window.localStorage.getItem('last-used-ladder') || '0') || ladderList[0].id);
   const [user, setUser] = useState(JSON.parse(window.localStorage.getItem('last-used-user') || '{}') || {});
   return (
     <div className="flex flex-row min-h-screen justify-center items-center text-xs sm:text-sm lg:text-base">
@@ -16,7 +16,10 @@ const App = () => {
         <Selector
           name = "ladder"
           selectedValue = {ladder}
-          onChange = {(e: any) => setLadder(e.target.value)}
+          onChange = {(e: any) => { 
+            window.localStorage.setItem('last-used-ladder', JSON.stringify(ladder));
+            setLadder(e.target.value);
+          }}
           list = {ladderList}
         ></Selector>
         <UserProfile setUser = {setUser}></UserProfile>
