@@ -9,7 +9,7 @@ import UserProfile from './user-profile/user-profile';
 
 const App = () => {
   const [ladder, setLadder] = useState(ladderList[0].id);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(JSON.parse(window.localStorage.getItem('last-used-user') || '') || {});
   return (
     <div className="flex flex-row min-h-screen justify-center items-center">
       <div className="flex flex-col">

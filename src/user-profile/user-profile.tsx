@@ -4,12 +4,14 @@ const url = `https://codeforces.com/api/user.status?from=1&handle=`
 
 const fetchUserProfile = async (username:string, cb: any, setLoading: any) => {
   setLoading(true);
+  window.localStorage.setItem('last-used-username', username);
   const mp: any = {};
   const response = await window.fetch(url + username);
   const result = await response.json();
   if (result?.status !== 'OK') {
     cb(mp);
     setLoading(false);
+    window.localStorage.setItem('last-used-user', JSON.stringify(mp));
     return;
   }
   result?.result.forEach((r: any) => {
@@ -19,17 +21,19 @@ const fetchUserProfile = async (username:string, cb: any, setLoading: any) => {
     }
   });
   cb(mp);
+  window.localStorage.setItem('last-used-user', JSON.stringify(mp));
   setLoading(false);
 };
 
 const UserProfile = (props: any) => {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState(window.localStorage.getItem('last-used-username') || '');
   const [loading, setLoading] = useState(false);
   return (
     <div className="flex flex-col">
       <div className="mt-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">Username:</label>
         <input 
+          value={username}
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
           id="username" type="text" 
           placeholder="Username" 
