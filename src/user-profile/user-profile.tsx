@@ -19,6 +19,8 @@ const fetchUserProfile = async (username:string, cb: any, setLoading: any) => {
     if (r?.verdict === 'OK') {
       mp['http://codeforces.com/problemset/problem/' + r?.problem?.contestId + '/' + r?.problem?.index] = true;
       mp['https://codeforces.com/problemset/problem/' + r?.problem?.contestId + '/' + r?.problem?.index] = true;
+      mp['https://codeforces.com/contest/' + r?.problem?.contestId + '/problem/' + r?.problem?.index] = true;
+      mp['http://codeforces.com/contest/' + r?.problem?.contestId + '/problem/' + r?.problem?.index] = true;
     }
   });
   cb(mp);

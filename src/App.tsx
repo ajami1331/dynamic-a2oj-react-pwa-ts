@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import { useState } from 'react';
-import ladderList from './ladders/ladder-list.json';
-import laddersDetails from './ladders/ladder-details.json';
+import ladderList from './static_data/ladder-list.json';
+import laddersDetails from './static_data/ladder-details.json';
 import Selector from './selector/selector';
 import Ladder from './ladder/ladder';
 import UserProfile from './user-profile/user-profile';
