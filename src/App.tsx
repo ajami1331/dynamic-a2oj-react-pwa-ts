@@ -17,7 +17,7 @@ const App = () => {
           name = "ladder"
           selectedValue = {ladder}
           onChange = {(e: any) => { 
-            window.localStorage.setItem('last-used-ladder', JSON.stringify(ladder));
+            window.localStorage.setItem('last-used-ladder', JSON.stringify(e.target.value));
             setLadder(e.target.value);
           }}
           list = {ladderList}
